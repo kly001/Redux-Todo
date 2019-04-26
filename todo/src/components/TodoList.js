@@ -3,17 +3,21 @@ import {connect} from "react-redux";
 
 const TodoList = props => {
     return(
-        <>
-        <div className = "todoList">
-            {}
-        </div>
-        </>
+        <> 
+        <div className ="todo-list">
+            {props.todoList.map(todo => (
+                <h4 key={todo.id}>
+            {todo.task}
+                </h4>
+            ))}
+          </div>  
+        </>  
     )
 }
 
 const mapStateToProps = state => {
     return {
-        todosList: state.todoObjects
+        todoList: state.todos
     }
 }
    

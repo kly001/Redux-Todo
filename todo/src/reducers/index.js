@@ -1,25 +1,25 @@
-import {ADD_TODO} from "../actions";
+import {
+    ADD_TODO
+} from "../actions";
 
 const initialState = {
-    todoObjects: [
-        {task:"Swim with Sharks",
-        completed: false,
-        id: Date.now(),
-    }
+    todos: [{
+            task: "Swim with Sharks",
+            completed: false,
+            id: Date.now(),
+        }
     ]
 }
 
-function reducer(state = initialState, action){
-    switch(action.type) {
+function reducer(state = initialState, action) {
+    switch (action.type) {
         case ADD_TODO:
-        return{
-            ...state,
-            todo:action.payload
-        }
+            return {
+                ...state,
+                todo: action.payload
+            }
         default:
-        return state;
+            return state;
     }
 }
-    export default reducer
-
-    
+export default reducer
