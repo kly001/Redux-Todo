@@ -1,18 +1,23 @@
-export const UPDATE_TODO = "UPDATE_TODO";
-export const ADD_TODO = "ADD_TODO"
 
-export function updateTodo(newTodo) {
-    return {
-        type: UPDATE_TODO,
-        payload:newTodo
-    }
-}
+export const ADD_TODO = "ADD_TODO"
+export const TOGGLE_TODO = "TOGGLE_TODO"
+
+
 
 export const addTodo = todoItem => {
     return{
         type:ADD_TODO,
-        payload:todoItem
+        payload:todoItem,
     }
+}
+
+export const toggleTodo = id => {
+    return{
+        type: TOGGLE_TODO,
+        payload: id,
+    }
+
+    
 }
 
 
