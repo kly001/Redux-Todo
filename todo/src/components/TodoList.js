@@ -41,7 +41,8 @@ class TodoList extends React.Component  {
             onChange={this.handleChange}
             placeholder="Add New Todo Here"
             />
-          <button onClick={this.addTodo}>Submit</button>     
+          <button onClick={this.addTodo}>Submit</button> 
+          <p>(NOTE : Click on a task to place a check if it is completed) </p>    
         </>  
     )
   }
