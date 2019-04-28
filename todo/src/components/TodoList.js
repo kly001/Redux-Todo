@@ -18,17 +18,19 @@ class TodoList extends React.Component  {
         this.setState({newTodo:""})
     }
 
-    toggleTodo = (id) => {
-        this.props.toggleTodo(id);
+    toggleTodo = (event,index) => {
+        event.preventDefault();
+        this.props.toggleTodo(index);
     }
 
     render() {
       return(
         <> 
         <div className ="todo-list">
-            {this.props.todoList.map((todo,id) => (
-                <h4 onClick = {event => this.toggleTodo(event,id)} key={todo.id}>
+            {this.props.todoList.map((todo,index) => (
+                <h4 onClick = {event => this.toggleTodo(event,index)} key={index}>
                     {todo.task}
+                    {todo.completed && <i className="fas fa-check"/>}
                 </h4>
             ))}
         </div>  

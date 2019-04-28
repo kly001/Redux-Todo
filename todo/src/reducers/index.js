@@ -2,10 +2,10 @@ import {ADD_TODO, TOGGLE_TODO} from "../actions";
 
 const initialState = {
     todos: [{
-            task: "Swim with Sharks",
+            task: " Swim with Sharks ",
             completed: false,
             id: Date.now(),
-        }
+        }   
     ]
 }
 
@@ -21,20 +21,30 @@ function reducer(state = initialState, action) {
                 ...state,
                 todos:[...state.todos, newTodo]
             }
-            
+
             case TOGGLE_TODO:
             return {
-                ...state,
-                todos:state.todos.map(todo => {
-                    if(todo.id === action.payload) {
-                        return {
-                            ...todo,
-                            completed: !todo.completed
-                        }
-                    }
-                    return todo
-                })
-            }
+        ...state,
+        todos: state.todos.map((todo, index) =>
+          action.payload === index
+            ? { ...todo, completed: !todo.completed }
+            : todo
+        )
+      };
+            
+            // case TOGGLE_TODO:
+            // return {
+            //     ...state,
+            //     todos:state.todos.map((todo,index) => {
+            //         if(index === action.payload) {
+            //             return {
+            //                 ...todo,
+            //                 completed: !todo.completed
+            //             }
+            //         }
+            //         return todo
+            //     })
+            // }
 
         default:
             return state;
