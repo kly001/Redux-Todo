@@ -31,6 +31,7 @@ function reducer(state = initialState, action) {
             : todo
         )
       };
+            // This is another way of writing the above TOGGLE_TODO case:
             
             // case TOGGLE_TODO:
             // return {
